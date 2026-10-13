@@ -3,12 +3,12 @@ import { onMounted, ref } from 'vue';
 
 const API_URL = 'http://localhost:3000';
 
-const pets = ref([]);
+// const pets = ref([]);
 const tutores = ref([]);
 
 async function carregarDados() {
-  const respostaPets = await fetch(`${API_URL}/pets`);
-  pets.value = await respostaPets.json();
+  //const respostaPets = await fetch(`${API_URL}/pets`);
+ // pets.value = await respostaPets.json();
 
   const respostaTutores = await fetch(`${API_URL}/tutores`);
   tutores.value = await respostaTutores.json();
@@ -23,6 +23,15 @@ function nomeDoTutor(tutorId) {
   return 'Tutor não encontrado';
 }
 
+async function excluirPet(id) {
+  const confirmarExclusao = window.confirm('Tem certesa que deseja excluir esse pet?');
+  if (confirmarExclusao) {
+    await fetch(`${API_URL}/pets/${id}`,{
+      method: 'DELETE',
+    });
+    await carregarDados();
+  }
+}
 onMounted(carregarDados);
 </script>
 
@@ -57,11 +66,12 @@ onMounted(carregarDados);
         <td>{{ nomeDoTutor(pet.tutorId) }}</td>
         <td>
           <RouterLink
-              :to="`/pets/${pet.id}`"
-            >
-              Visualizar
-            </RouterLink>
-          Excluir
+              :to="{ name: 'detalhes-pet', params: { id: pet.id } }"> EDITAR </RouterLink>
+
+              <button
+                class="btn btn-danger"
+                @click="excluirPet(pet.id)"> EXCLUIR
+              </button>
         </td>
       </tr>
     </tbody>
