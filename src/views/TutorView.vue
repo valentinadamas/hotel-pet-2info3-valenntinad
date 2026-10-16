@@ -1,4 +1,4 @@
-Endpoint:  Listar tutores
+<!-- Endpoint:  Listar tutores
 Método:  GET
 Ação:  /tutores
 
@@ -8,46 +8,38 @@ Ação:  /tutores
 
 Endpoint: Remover tutor  por iD
 Método: DELETE
-Ação: /tutores/{id}
+Ação: /tutores/{id} -->
 
 <script setup>
 import { onMounted, ref } from 'vue';
 
 const API_URL = 'http://localhost:3000';
-
-const pets = ref([]);
 const tutores = ref([]);
 
 async function carregarDados() {
-  // const respostaPets = await fetch(`${API_URL}/pets`);
-  // pets.value = await respostaPets.json();
-
   const respostaTutores = await fetch(`${API_URL}/tutores`);
   tutores.value = await respostaTutores.json();
 }
 
-function nomeDoTutor(tutorId) {
-  for (const tutor of tutores.value) {
-    if (tutor.id === tutorId) {
-      return tutor.nome;
-    }
-  }
-  return 'Tutor não encontrado';
-}
-
 async function excluirTutor(id) {
-  const confirmarExclusao = window.confirm('Tem certesa que deseja excluir esse pet?');
+  const confirmarExclusao = window.confirm(
+    'Tem certeza que deseja excluir esse tutor?',
+  );
   if (confirmarExclusao) {
-    await fetch(`${API_URL}/tutores/${id}`,{
+    await fetch(`${API_URL}/tutores/${id}`, {
       method: 'DELETE',
     });
     await carregarDados();
   }
 }
 onMounted(carregarDados);
+
+//FIM DO SCRIPT
 </script>
 
 <template>
+  <!--INICIO DO TEMPLATE-->
+
   <div>
     <header class="mb-4">
       <h1 class="text-2xl font-bold">Listagem de Tutores</h1>
@@ -62,7 +54,12 @@ onMounted(carregarDados);
       <tr>
         <th>ID</th>
         <th>Nome</th>
+        <th>CPF/CnPJ</th>
         <th>Telefone</th>
+        <th>Email</th>
+        <th>Pets(Qtd)</th>
+        <th>Pets(Nomes)</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -72,15 +69,24 @@ onMounted(carregarDados);
       >
         <td>{{ tutor.id }}</td>
         <td>{{ tutor.nome }}</td>
+        <td>{{ tutor.cpfCnpj }}</td>
         <td>{{ tutor.telefone }}</td>
-        <td>
-          <RouterLink
-              :to="{ name: 'detalhes-tutor', params: { id: tutor.id } }"> EDITAR </RouterLink>
+        <td>{{ tutor.email }}</td>
+        <td>{{ tutor.petsQtd }}</td>
+        <td>{{ tutor.petsNomes }}</td>
 
-              <button
-                class="btn btn-danger"
-                @click="excluirTutor(tutor.id)"> EXCLUIR
-              </button>
+
+
+
+          <!-- <RouterLink
+              :to="{ name: 'detalhes-tutor', params: { id: tutor.id } }"> EDITAR </RouterLink> -->
+
+          <button
+            class="btn btn-danger"
+            @click="excluirTutor(tutor.id)"
+          >
+            EXCLUIR
+          </button>
         </td>
       </tr>
     </tbody>

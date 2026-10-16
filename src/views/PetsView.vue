@@ -3,12 +3,12 @@ import { onMounted, ref } from 'vue';
 
 const API_URL = 'http://localhost:3000';
 
-// const pets = ref([]);
+const pets = ref([]);
 const tutores = ref([]);
 
 async function carregarDados() {
-  //const respostaPets = await fetch(`${API_URL}/pets`);
- // pets.value = await respostaPets.json();
+  const respostaPets = await fetch(`${API_URL}/pets`);
+ pets.value = await respostaPets.json();
 
   const respostaTutores = await fetch(`${API_URL}/tutores`);
   tutores.value = await respostaTutores.json();

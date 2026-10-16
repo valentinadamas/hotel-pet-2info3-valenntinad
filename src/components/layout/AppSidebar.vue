@@ -5,6 +5,8 @@ import { RouterLink } from 'vue-router';
 <template>
   <nav aria-label="Menu da PetSchool">
     <div class="nav flex-column nav-pills gap-1">
+      <!-- pet -->
+
       <RouterLink
         class="nav-link"
         active-class="active"
@@ -29,28 +31,32 @@ import { RouterLink } from 'vue-router';
         Novo pet
       </RouterLink>
 
-      <span
-        class="nav-link text-body-secondary"
-        aria-disabled="true"
-      > </span>
+      <!-- tutor -->
 
-       <RouterLink
-       class="nav-link"
+      <RouterLink
+        class="nav-link"
         active-class="active"
         to="/tutores"
       >
-       <i
+        <i
           class="bi bi-people me-2"
           aria-hidden="true"
         ></i>
         Tutores
       </RouterLink>
 
-        <RouterLink
+  
+      <RouterLink
         class="nav-link"
         active-class="active"
         to="/tutores/novo"
-      > Novo Tutor</RouterLink>
+      >
+        <i
+          class="bi bi-plus-circle me-2"
+          aria-hidden="true"
+        ></i
+        >Novo Tutor</RouterLink
+      >
     </div>
   </nav>
 </template>
