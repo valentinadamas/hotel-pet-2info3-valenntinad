@@ -4,6 +4,31 @@
       "id": "2",
       "nome": "Carlos",
       "telefone": "47988880000"
+    },
+    {
+      "id": "1",
+      "nome": "Ana",
+      "telefone": "47988670000"
+    },
+    {
+      "nome": "valentina damas",
+      "cpfCnpj": 98789878984,
+      "telefone": 47999999999,
+      "email": "email@email.com",
+      "nasc": "2026-10-06",
+      "id": "6xZ6jPyDo3A"
+    },
+    {
+      "nome": "dfgf",
+      "cpfCnpj": 5434534534543,
+      "telefone": 34534534,
+      "email": "fgnhdfngh@gmail.com",
+      "nasc": "2026-10-16",
+      "cep": 34534534534534,
+      "rua": "bsfgbfgbfgnghnghngn",
+      "bairro": "ndfhndfgndfngdfghfg",
+      "cidade": "sdhsfghhfg",
+      "id": "BSwdGGOKW_Y"
     }
   ],
   "pets": [
@@ -18,6 +43,18 @@
       "especie": "Hamster",
       "tutorId": "1",
       "id": "V9bTKiCwfNE"
+    },
+    {
+      "nome": "fudido",
+      "especie": "Cachorro",
+      "tutorId": "2",
+      "id": "HPqrEJFkk2U"
+    },
+    {
+      "nome": "sfas",
+      "especie": "Gato",
+      "tutorId": "1",
+      "id": "I5oynVBnfGg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

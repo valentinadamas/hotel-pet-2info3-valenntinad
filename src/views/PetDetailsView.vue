@@ -41,4 +41,9 @@ onMounted(carregarPet);
   <h1>Nome: {{ pet.nome }}</h1>
   <p>Espécie: {{ pet.especie }}</p>
   <!-- <p>Tutor: {{ nomeDoTutor(pet.tutorId) }}</p> -->
+
+
+
+
+
 </template>

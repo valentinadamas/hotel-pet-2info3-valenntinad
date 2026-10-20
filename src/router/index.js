@@ -28,11 +28,11 @@ const router = createRouter({
       name: 'tutores',
       component: () => import('../views/TutorView.vue'),
     },
-    /* {
+     {
       path: '/tutor/novo',
       name: 'tutor-pet',
       component: () => import('../views/AddTutor.vue'),
-    },
+    }, /*
     {
 
       path: '/tutores/:id',

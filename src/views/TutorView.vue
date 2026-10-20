@@ -39,7 +39,6 @@ onMounted(carregarDados);
 
 <template>
   <!--INICIO DO TEMPLATE-->
-
   <div>
     <header class="mb-4">
       <h1 class="text-2xl font-bold">Listagem de Tutores</h1>
@@ -47,48 +46,46 @@ onMounted(carregarDados);
         Listagem dos Tutores cadastrados no sistema.
       </p>
     </header>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CPF/CnPJ</th>
+          <th>Telefone</th>
+          <th>Email</th>
+          <th>Pets(Qtd)</th>
+          <th>Pets(Nomes)</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="tutor in tutores"
+          :key="tutor.id"
+        >
+          <td>{{ tutor.id }}</td>
+          <td>{{ tutor.nome }}</td>
+          <td>{{ tutor.cpfCnpj }}</td>
+          <td>{{ tutor.telefone }}</td>
+          <td>{{ tutor.email }}</td>
+          <td>{{ tutor.petsQtd }}</td>
+          <td>{{ tutor.petsNomes }}</td>
+          <td>
+
+
+
+
+            <button
+              class="btn btn-danger"
+              @click="excluirTutor(tutor.id)"
+            >
+              EXCLUIR
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>CPF/CnPJ</th>
-        <th>Telefone</th>
-        <th>Email</th>
-        <th>Pets(Qtd)</th>
-        <th>Pets(Nomes)</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="tutor in tutores"
-        :key="tutor.id"
-      >
-        <td>{{ tutor.id }}</td>
-        <td>{{ tutor.nome }}</td>
-        <td>{{ tutor.cpfCnpj }}</td>
-        <td>{{ tutor.telefone }}</td>
-        <td>{{ tutor.email }}</td>
-        <td>{{ tutor.petsQtd }}</td>
-        <td>{{ tutor.petsNomes }}</td>
-
-
-
-
-          <!-- <RouterLink
-              :to="{ name: 'detalhes-tutor', params: { id: tutor.id } }"> EDITAR </RouterLink> -->
-
-          <button
-            class="btn btn-danger"
-            @click="excluirTutor(tutor.id)"
-          >
-            EXCLUIR
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </template>

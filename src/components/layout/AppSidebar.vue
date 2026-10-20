@@ -45,11 +45,11 @@ import { RouterLink } from 'vue-router';
         Tutores
       </RouterLink>
 
-  
+
       <RouterLink
         class="nav-link"
         active-class="active"
-        to="/tutores/novo"
+        to="/tutor/novo"
       >
         <i
           class="bi bi-plus-circle me-2"
